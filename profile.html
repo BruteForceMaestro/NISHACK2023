@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Личный кабинет</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .profile-info {
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .profile-info label {
+      font-weight: bold;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 10px;
+    }
+
+    .button-container button {
+      padding: 10px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Личный кабинет</h1>
+
+  <div class="profile-info">
+    <h2>Информация о профиле</h2>
+    <label>Имя: Иван Иванов</label>
+    <br><br>
+    <label>Email: example@example.com</label>
+  </div>
+
+  <h2>Действия</h2>
+  <div class="button-container">
+    <button onclick="editProfile()">Редактировать профиль</button>
+    <button onclick="changePassword()">Изменить пароль</button>
+  </div>
+
+  
+
+  <div class="bgWhite user-col-container"> <div class="user-col user-col-left m-text-center"> <div class="user-col-profile">
+  <div> <div>
+  </div>
+  <div class="user-avatar-container">
+  <div class="user-avatar-container_add-photo cur file-up load-block ready">
+  <div class="relative">
+  <span class="user-avatar t-user-avatar user-avatar- image s200 js-user-avatar_block">
+  <img src="https://cdn-edge.kwork.ru/images/avatar/ noprofilepicture.svg" alt class="user-avatar__pict ure rounded" style="background: rgb(166, 149, 231) ;">
+  </span>
+  <canvas id="user-avatar-canvas" class="user-avatar- canvas">
+  <div class="upload-progress">
+  <div></div>
+  </div>
+  </div>
+  <img src="https://cdn-edge.kwork.ru/images/icon camer a.png" width="72" height="64" alt class="cur user-ava tar_add-photo-button user-avatar_tooltip dib has-tool
+  tip" data-original-title="null">
+  </div>
+  <input type="file" accept=".jpeg, .jpg, .gif, .png" style="display: none;">
+  <div class="add-photo_error"></div>
+  </div>
+  <div>
+  <h1 title="_Zhanibek_" class="user-username mbe d-flex al ign-items-center">_Zhanibek_</h1>
+ 
+  </div>
+  </div>
+  <div class="user-info">
+
+  <div class="joined">
+  <i class="fa fa-clock-o fa-lg">
+  </i>
+  " На сайте с 10 июня 2020"
+  </div>
+  <div class="nowrap">
+  <span data-user-id="4338161" data-with-text="true" class= "js-user-online-block online-status is-init is-online">
+  <i class="dot-user-status dot-user-online"></i>
+  " Онлайн"
+  </span>
+  </div>
+  </div>
+  </div>
+  <div class="user-col-about">
+  <div class="user-about-me mt15 f15 m-text-left word-break-wor d">Пользователь не написал о себе</div>
+  </div>
+  </div>
+  <div id="user-col-right" class="user-col user-col-right body bg"> <div class="user-col-right-min-width"></div>
+  <a href="/settings" class="kw-button kw-button--green user-set tings-button w-100 d-flex justify-content-center align-items-c enter nowrap mb45">
+  <img src="https://cdn-edge.kwork.ru/images/icons/icon-setting s.svg" alt class="user-settings-button__icon mr4"> Настройки профиля
+  </a>
+  <div class="user-col-right__summary user-col-right_summary--e mpty">
+  <div id="about"></div>
+  </div>
+  </div>
+  </div>
+  <div id="kworks" class="pb35 user-proifile-block-sizer bgLightGray">
+  <div class="centerwrap lg-centerwrap clearfix block-response js- no-hidden-cards"></div>
+  </div>
+</div>
+
+  <script>
+    function editProfile() {
+        const newName = prompt("Введите новое имя:");
+      const newEmail = prompt("Введите новый email:");
+      
+      if (newName && newEmail) {
+        document.getElementById('username').textContent = newName;
+        document.getElementById('email').textContent = newEmail;
+      }
+    }
+
+    function changePassword() {
+        const newPassword = prompt("Введите новый пароль:");
+      
+      if (newPassword) {
+      } 
+    }
+  </script>
+
+</body>
+</html>
