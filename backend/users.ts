@@ -12,12 +12,12 @@ export async function getUsers(numberOfUsers: number) {
 }
 
 export async function insertUser(user: User) {
-    const users = await sql`
+    const users = await sql<User[]>`
         INSERT INTO users
             (username, first_name, last_name, age, email, password, profession_id)
         VALUES
             (${user.username}, ${user.first_name}, ${user.last_name}, ${user.age}, ${user.email}, ${user.password}, ${user.profession_id} )
-        RETURNING (username, first_name, last_name, age, email, password, profession_id)
+        RETURNING *
     `
     return users
 }
