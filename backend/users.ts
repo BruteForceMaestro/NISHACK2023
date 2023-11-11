@@ -1,4 +1,5 @@
 import sql from "./db"
+import { User } from "./models/user"
 
 export async function getUsers(numberOfUsers: number) {
     const users = await sql<User[]>`

@@ -1,7 +1,7 @@
-const request = require('supertest');
-const app = require('../server');
-import postgres, { RowList } from "postgres";
+import request from 'supertest';
+import app from '../server';
 import sql from "../db"
+import { User } from "../models/user";
 
 describe('Get Endpoints', () => {
   it('gets data about the first user correct', async () => {
