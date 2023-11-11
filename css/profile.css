@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px;
+  z-index: 99;
+  background: transparent;
+}
+.header a {
+  color: #000;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 30px;
+}
+.header .myAccount {
+  display: inline-block;
+  padding-top: 40px;
+  width: 80px;
+}
+.header .myAccount img {
+  width: 100%;
+}
+
+body, main {
+  height: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 0;
+  height: 100%;
+}
+
+html {
+  background-image: linear-gradient(to bottom right, rgb(162, 236, 255), rgb(68, 0, 255));
+  width: 100%;
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  /* .logo__img */
+}
+.logo__img {
+  width: 300px;
+}
+.logo__img img {
+  width: 100%;
+}
+
+.myacc {
+  background-color: #fff;
+  padding: 40px 50px;
+  font-size: 20px;
+  height: 100%;
+  border: 3px solid #000;
+  border-radius: 30px;
+  /* .myacc__text */
+  /* .myacc__data */
+  /* .myacc__username */
+  /* .myacc__fullname */
+  /* .myacc__age */
+  /* .myacc__email */
+  /* .myacc__profession */
+  /* .myacc__roadmap */
+}
+.myacc__text {
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.myacc span {
+  font-weight: bold;
+}
+.myacc__roadmap p {
+  font-weight: bold;
+}
+.myacc__roadmap ol {
+  padding-left: 30px;
+}
