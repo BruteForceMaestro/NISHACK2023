@@ -66,21 +66,24 @@ app.post('/api/users', async (request, response) => {
 
     let hashedPassword;
     try {
+        console.log(newUser)
         hashedPassword = await bcrypt.hash(newUser.password, 10)
         newUser.password = hashedPassword
 
     } catch (err) {
         console.error("Failed to hash password!")
         console.error(err)
-        response.status(501).send()
+        response.status(501).send(err)
+        return
     }
     
     insertUser(newUser).then( us =>{
         response.status(200).send(us[0])
+        return
     }  
     ).catch(err => {
         console.log(err)
-        response.sendStatus(501)
+        response.status(400).send(err)
     })
 })
 

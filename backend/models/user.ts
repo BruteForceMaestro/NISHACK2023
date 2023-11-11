@@ -1,3 +1,4 @@
+const NO_PROFESSION_CODE = 2;
 // internal user stuff, should never be leaked in a get request.
 export class User {
     username: string
@@ -9,13 +10,18 @@ export class User {
     profession_id: number
     
     constructor(userObject){
-        this.username = userObject.username,
-        this.first_name = userObject.first_name,
-        this.last_name = userObject.last_name,
-        this.age = userObject.age,
-        this.email = userObject.email,
-        this.password = userObject.password,
-        this.profession_id = userObject.profession_id
+        this.username = userObject.username
+        this.first_name = userObject.first_name
+        this.last_name = userObject.last_name
+        this.age = userObject.age
+        this.email = userObject.email
+        this.password = userObject.password
+        if (userObject.profession_id == null){
+            this.profession_id = NO_PROFESSION_CODE; // default code for no profession
+        } else {
+            this.profession_id = userObject.profession_id
+        }
+        
     }
 
 }
