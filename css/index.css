@@ -138,6 +138,14 @@ textarea {
   display: inline-block;
   margin-right: 30px;
 }
+.header .myAccount {
+  display: inline-block;
+  padding-top: 40px;
+  width: 80px;
+}
+.header .myAccount img {
+  width: 100%;
+}
 
 html {
   background-image: linear-gradient(to bottom right, rgb(162, 236, 255), rgb(68, 0, 255));
@@ -156,17 +164,6 @@ html {
 }
 .logo__img img {
   width: 100%;
-}
-
-.header .search input {
-  background: transparent;
-  font-size: 20px;
-  border-radius: 5px;
-  border: 2px solid white;
-  padding-left: 10px;
-  right: 100px;
-  outline: none;
-  color: black;
 }
 
 .home {
