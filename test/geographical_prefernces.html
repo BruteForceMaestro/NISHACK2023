@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Career Guidance Test</title>
+    <link rel="stylesheet" type="text/css" href="career_guidance_test.css">
+</head>
+<body>
+            <div class="container"> 
+        <h1 class="branch-name">Geographical Preferences</h1>
+        <div class="questions">
+            <p>Do you have any preferences regarding the location of their work? For example, civil engineering projects may require fieldwork in specific regions</p>
+            <input type="text" id="geographicalPreferences">
+        </div>
+        <button id="continueBtn" onclick="navigateToNextBranch('personal_traits.html')">Continue</button>
+    </div>
+
+    <script>
+        function navigateToNextBranch(nextPage) {
+            window.location.href = nextPage;
+        }
+        function sendData() {
+            const geographicalPreferences = document.getElementById('geographicalPreferences').value;
+
+            fetch('backend.js', {
+                method: 'POST',
+                body: JSON.stringify({ geographicalPreferences }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
