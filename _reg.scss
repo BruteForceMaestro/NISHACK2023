@@ -1,0 +1,48 @@
+.container {
+    padding-top: 200px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.signup-text {
+    font-size: 40px;
+    text-align: center;
+    font-weight: 700;
+}
+.reg-form {
+    padding-top: 60px;
+    /* .reg-form__elem */
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    &__elem {
+        display: flex;
+        flex-flow: row nowrap;
+        width: 370px;
+        margin: 0 auto;
+        justify-content: space-between;
+        label {
+            font-size: 24px;
+        }
+        input {
+            font-size: 15px;
+            padding: 5px 5px;
+        }
+        margin-bottom: 10px;
+    }
+
+    .btn-sumbit {
+        cursor: pointer;
+        background-color: #f74545;
+        max-width: 130px;
+        text-decoration: none;
+        color: #fff;
+        transition: 0.4s;
+        display: inline-block;
+        margin-top: 50px;
+
+        &:hover {
+            background-color: #ff6161;
+        }
+    }
+}
