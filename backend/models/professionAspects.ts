@@ -1,4 +1,4 @@
-class ProfessionAspects {
+export class ProfessionAspects {
     /**
      * Education and Qualifications
      */

@@ -43,7 +43,7 @@ describe ('Post Endpoints And Authentication', () => {
     expect(regExpResult).not.toEqual(undefined)
     
     
-    console.log(regExpResult!.groups![0])
+    console.log(regExpResult![1])
     
   }, 60000)
 

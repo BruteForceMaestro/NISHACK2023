@@ -5,6 +5,7 @@ import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 import dotenv from 'dotenv'
 import { generateResponse }from "./openai"
+import { ProfessionAspects } from "./models/professionAspects"
 import cors from 'cors'
 
 dotenv.config()

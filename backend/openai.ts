@@ -1,10 +1,13 @@
 import OpenAI from "openai";
+import dotenv from "dotenv"
+import { ProfessionAspects } from "./models/professionAspects";
+dotenv.config()
 
-let openai;
+let openai : OpenAI;
 if (process.env.OPENAI_API_KEY == undefined){
   console.log("OPENAI API KEY IS UNDEFINED WTF")
 } else {
-  const openai = new OpenAI({
+  openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 }
@@ -102,7 +105,6 @@ export async function generateResponse(profession_aspects: ProfessionAspects) {
     ];
     You should follow this format: 
     Profession: [your chosen profession];
-    [Roadmap for achiveing a job in this profession]
     `
 
     const user_msg = `
@@ -117,20 +119,14 @@ export async function generateResponse(profession_aspects: ProfessionAspects) {
       Lifestyle Considerations: ${profession_aspects.lifestyle}
       Challenges or Constraints: ${profession_aspects.challenges}
     `
-
-
-
     const completion = await openai.chat.completions.create({
-    messages: [
-      //{ role: "system", content: system_msg },
-      { role: "system", content: "hello world" }
-      //{ role: "user", content: user_msg }
-    ],
-    model: "gpt-3.5-turbo",
+      messages: [
+        { role: "system", content: system_msg },
+        { role: "user", content: user_msg }
+      ],
+      model: "gpt-3.5-turbo"
+    });
 
-    
-  });
-
-  console.log(completion.choices[0]['message']['content'])
-  return completion.choices[0]['message']['content']
+  console.log(completion.choices[0].message.content)
+  return completion.choices[0].message.content
 }
