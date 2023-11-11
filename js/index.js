@@ -24,6 +24,7 @@ function tryLogIn(){
     httpRequest.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200){
             saveAuthToken(httpRequest) 
+            window.location.href = "test/greeting.html"
         } 
     };
     httpRequest.open('POST', backend_url + route, true);
