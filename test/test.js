@@ -1,3 +1,6 @@
+const backend_url = "http://localhost:3000" 
+
+
 
 function navigateToNextBranch(nextPage, key) {
 
@@ -7,28 +10,34 @@ function navigateToNextBranch(nextPage, key) {
 }
 
 function postData() {
-    fetch('/api/test', {
-        method: 'POST',
-        body: JSON.stringify({ professionAspects }),
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
-        .then(response => {
-            if (response.ok) {
-                // Parse the JSON response
-                return response.json();
-            } else {
-                // Handle the case where the server returns an error
-                throw new Error('Server response was not OK');
-            }
-        })
-        .then(data => {
-            // Handle the data received from the server
-            console.log('Server response:', data);
-        })
-        .catch(error => {
-            // Handle network errors or errors from the server
-            console.error('Error:', error);
-        });
+    const route = "/api/test"
+    let httpRequest = false;
+
+    httpRequest = new XMLHttpRequest();
+    if (httpRequest.overrideMimeType) {
+        httpRequest.overrideMimeType('text/xml');
+    }
+
+    httpRequest.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200){
+            saveAuthToken(httpRequest) 
+            window.location.href = "test/greeting.html"
+        } 
+    };
+    httpRequest.open('POST', backend_url + route, true);
+    httpRequest.setRequestHeader("Content-type", "application/json");
+    httpRequest.send( JSON.stringify(
+        {
+            education: sessionStorage.education,
+            skills: sessionStorage.skills,
+            interests: sessionStorage.interests,
+            workExperience: sessionStorage.workExperience,
+            values: sessionStorage.values,
+            env: sessionStorage.env,
+            goals: sessionStorage.goals,
+            geo: sessionStorage.geo,
+            lifestyle: sessionStorage.lifestyle,
+            challenges: sessionStorage.challenges,
+        }
+    ) );
 }
