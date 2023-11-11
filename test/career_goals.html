@@ -14,25 +14,13 @@
             onclick="navigateToNextBranch('./geographical_preferences.html')">Continue</button>
     </div>
 
+    <script src="test.js"></script>
+
     <script>
         function navigateToNextBranch(nextPage) {
+            professionAspects.goals = document.getElementById('career_goals').value;
+            // console.log(professionAspects);
             window.location.href = nextPage;
-        }
-        function sendData() {
-            const professionAspects = document.getElementById('career_goals').value;
-
-            fetch('backend.js', {
-                method: 'POST',
-                body: JSON.stringify({ professionAspects }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                }
-            }).catch(error => {
-                console.error('Error:', error);
-            });
         }
     </script>
 </body>
