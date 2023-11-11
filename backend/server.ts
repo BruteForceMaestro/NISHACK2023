@@ -1,9 +1,10 @@
 import { deleteUser, getUserByUsername, getUsers, insertUser } from "./users"
 import { User, PublicUser, UserLoginDetails } from "./models/user"
-import express from 'express'
+import express, { response } from 'express'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 import dotenv from 'dotenv'
+import { generateResponse }from "./openai"
 import cors from 'cors'
 
 dotenv.config()
@@ -11,19 +12,7 @@ const app = express()
 
 app.use(express.json())
 app.use(cors({credentials: true, origin: true}))
-// checks body of request for type
-function typeCheck<T>(body: Object){
-    let instanceOfT : T | undefined = undefined;
-    try {
-        instanceOfT = body as T
-    }
-    catch {
-        console.log("Malformed request recieved.")
-        return undefined
-    }
 
-    return instanceOfT;
-}
 
 // sends in json so tests don't fail and shit
 function sendShortMessage(response, msg: string, statusCode: number = 400){
@@ -31,13 +20,19 @@ function sendShortMessage(response, msg: string, statusCode: number = 400){
 }
 
 // post test info from frontend to here
-app.post('/api/test', (req, res) => {
+app.post('/api/test', async (req, res) => {
     // Assuming req.body.professionAspects contains the data sent in the POST request
-    const professionAspects = req.body.professionAspects;
+    const professionAspects = new ProfessionAspects(req.body);
+    if (professionAspects?.challenges == undefined){
+        sendShortMessage(res, "Invalid profession aspects object")
+        console.log(professionAspects)
+        return
+    }
     console.log(professionAspects);
     // Do something with the data (e.g., process it, query a database, etc.)
+    let gpt_ans = await generateResponse(professionAspects);
     // For demonstration purposes, let's just send the same data back as a response
-    res.json({ receivedData: professionAspects });
+    res.status(200).send({ receivedData: gpt_ans });
 });
 
 // returns public knowledge about users
@@ -61,9 +56,9 @@ app.post('/api/users', async (request, response) => {
     
     response.set('Content-Type', 'application/json')
 
-    const newUser = typeCheck<User>(request.body)
+    const newUser = new User(request.body)
 
-    if (newUser == undefined){
+    if (newUser.username == undefined){
         sendShortMessage(response, "Improper request")
         return
     }
@@ -94,7 +89,7 @@ app.post('/api/users/login', async (request, response) => {
 
     console.log(request.body)
 
-    const loginDetails = typeCheck<UserLoginDetails>(request.body)
+    const loginDetails = new UserLoginDetails(request.body?.username, request.body?.password)
 
     if (loginDetails?.username == undefined){
         sendShortMessage(response, "Improper request")

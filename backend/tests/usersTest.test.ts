@@ -2,6 +2,7 @@ import request from 'supertest';
 import app from '../server';
 import sql from "../db"
 import { User } from "../models/user";
+import { time } from 'console';
 
 
 let accessToken;
@@ -15,8 +16,36 @@ const payload = {
   profession_id: 1
 }
 
+const regExp = new RegExp(String.raw`Profession: (\w+(\s*\w*)+)`)
+
 describe ('Post Endpoints And Authentication', () => {
-  
+  it('generates correct response with chatgpt', async () => {
+    const res = await request(app).post(
+      '/api/test'
+    ).send(
+      {
+        education: "High school",
+        skills: "Programming, Math, Communication, Good In High-Stress Environments",
+        interests: "Programming, Physics, Math, Philosophy",
+        workExperience: "None",
+        values: "Creativity",
+        env: "8-10 hours of work per day, no work at home",
+        goals: "High earning job, 100K plus dollars per year",
+        geo: "United States",
+        lifestyle: "Night Owl",
+        challenges: "Compassionate, Good communicator"
+      }
+    ).expect( 'Content-Type', 'application/json; charset=utf-8')
+      .expect(200)
+      .set( 'Accept', 'application/json')
+    
+    let regExpResult = regExp.exec(res.body.receivedData)
+    expect(regExpResult).not.toEqual(undefined)
+    
+    
+    console.log(regExpResult!.groups![0])
+    
+  }, 60000)
 
   it('posts user to database and returns it', async () => {
 
