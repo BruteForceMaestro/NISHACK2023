@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Career Guidance Test</title>
+    <link rel="stylesheet" type="text/css" href="career_guidance_test.css">
+</head>
+<body>
+            <div class="container"> 
+        <h1 class="branch-name">Personal Traits</h1>
+        <div class="questions">
+            <p>Are there personality traits that may be particularly well-suited or challenging for each profession? For example, software engineering often requires problem-solving skills, while cashier roles may involve strong interpersonal skills.</p>
+            <input type="text" id="personalityTraits">
+        </div>
+        <button id="continueBtn" onclick="navigateToNextBranch('.html')">Submit</button>
+    </div>
+
+    <script>
+        function navigateToNextBranch(nextPage) {
+            window.location.href = nextPage;
+        }
+        function sendData() {
+            const personalityTraits = document.getElementById('personalityTraits').value;
+
+            fetch('backend.js', {
+                method: 'POST',
+                body: JSON.stringify({ personalityTraits }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
