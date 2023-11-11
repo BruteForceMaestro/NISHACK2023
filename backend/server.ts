@@ -1,6 +1,6 @@
 import { getUsers, insertUser } from "./users"
-
-const express = require('express')
+import { User } from "./models/user"
+import express from 'express'
 const app = express()
 
 app.use(express.json())
@@ -27,4 +27,4 @@ app.post('/api/users', async (request, response) => {
     })
 })
 
-module.exports = app
+export default app
