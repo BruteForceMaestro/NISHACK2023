@@ -1,0 +1,26 @@
+
+.results {
+    font-size: 30px;
+    /* .results__profession */
+
+    ol {
+        padding-left: 30px;
+    }
+
+    &__text {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    &__profession {}
+
+    /* .results__subtitle */
+
+    &__subtitle {
+        font-weight: bold;
+    }
+
+    /* .results__name */
+
+    &__name {}
+}
