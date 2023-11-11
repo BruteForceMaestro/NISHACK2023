@@ -1,15 +1,10 @@
-const professionAspects = {
-    education: "",
-    skills: "",
-    interests: "",
-    workExperience: "",
-    values: "",
-    env: "",
-    goals: "",
-    geo: "",
-    lifestyle: "",
-    challenges: ""
-};
+
+function navigateToNextBranch(nextPage, key) {
+
+    sessionStorage[key] = document.getElementById(key).value;
+
+    console.log(sessionStorage[key])
+}
 
 function postData() {
     fetch('/api/test', {

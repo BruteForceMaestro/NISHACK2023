@@ -10,20 +10,13 @@
     <div class="container">
         <div class="branch-name"><b>Education and Qualifications</b>: What is your educational background? What degrees
             or certifications do you hold?</div>
-        <textarea type="text" name="education" id="educationLevel"></textarea>
+        <textarea type="text" name="education" id="education"></textarea>
         <button class="btn" id="continueBtn"
-            onclick="navigateToNextBranch('skills_and_experience.html')">Continue</button>
+            onclick="navigateToNextBranch('skills_and_experience.html', 'education')">Continue</button>
     </div>
 
     <script src="test.js"></script>
 
-    <script>
-        function navigateToNextBranch(nextPage) {
-            professionAspects.education = document.getElementById('educationLevel').value;
-            // console.log(professionAspects);
-            window.location.href = nextPage;
-        }
-    </script>
 </body>
 
 </html>
