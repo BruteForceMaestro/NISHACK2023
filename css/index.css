@@ -12,17 +12,111 @@
 }
 
 .btn {
-  display: inline-block;
-  color: #000;
-  background-color: #fff;
-  border: 1px solid #000;
-  border-radius: 20px;
-  padding: 10px 30px;
+  cursor: pointer;
+  background-color: rgb(99, 247, 69);
+  max-width: 130px;
   text-decoration: none;
+  color: #000;
   transition: 0.4s;
+  display: block;
+  margin-top: 50px;
+  margin: 0 auto;
 }
 .btn:hover {
-  background-color: #d1d1d1;
+  background-color: rgb(131, 255, 148);
+}
+
+.btn1 {
+  cursor: pointer;
+  font-size: 20px;
+  padding: 5px 20px;
+  background-color: rgb(99, 247, 69);
+  max-width: 130px;
+  text-decoration: none;
+  color: #000;
+  transition: 0.4s;
+  display: block;
+  margin-top: 50px;
+  border-radius: 20px;
+  border: 1px solid #000;
+  margin: 0 auto;
+}
+.btn1:hover {
+  background-color: rgb(131, 255, 148);
+}
+
+.branch-name {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+textarea {
+  font-size: 16px;
+  padding: 5px;
+  margin-bottom: 30px;
+  width: 100%;
+  resize: none;
+}
+
+.btn-end {
+  background-color: #ff1c1c;
+  color: #fff;
+}
+.btn-end:hover {
+  background-color: #ff4c4c;
+}
+
+.container {
+  padding-top: 200px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.signup-text {
+  font-size: 40px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.error {
+  color: red;
+  font-size: 15px;
+}
+
+.reg-form {
+  padding-top: 60px;
+  /* .reg-form__elem */
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.reg-form__elem {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 370px;
+  margin: 0 auto;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.reg-form__elem label {
+  font-size: 24px;
+}
+.reg-form__elem input {
+  font-size: 15px;
+  padding: 5px 5px;
+}
+.reg-form .btn-sumbit {
+  cursor: pointer;
+  background-color: #f74545;
+  max-width: 130px;
+  text-decoration: none;
+  color: #fff;
+  transition: 0.4s;
+  display: inline-block;
+  margin-top: 50px;
+}
+.reg-form .btn-sumbit:hover {
+  background-color: #ff6161;
 }
 
 * {
@@ -269,6 +363,8 @@ button {
 .login .sign-up p {
   color: black;
 }
+
+
 
 .sign-up a:hover {
   text-decoration: underline;

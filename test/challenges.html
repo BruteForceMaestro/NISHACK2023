@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Career Guidance Test</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="branch-name"><b>Challenges or Constraints</b>: Are there any limitations or constraints that might affect your career choices? For example, health considerations, family commitments, or other personal factors.</div>
+        <textarea type="text" name="challenges" id="challenges"></textarea>
+        <button class="btn btn-end" id="continueBtn"
+            onclick="navigateToNextBranch('../result.html')">Finish</button>
+    </div>
+
+    <script src="test.js"></script>
+
+    <script>
+        function navigateToNextBranch(nextPage) {
+            professionAspects.challenges = document.getElementById('challenges').value;
+            // console.log(professionAspects);
+
+            postData()
+
+            window.location.href = nextPage;
+        }
+    </script>
+</body>
+
+</html>

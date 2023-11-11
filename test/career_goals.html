@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Career Guidance Test</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="branch-name"><b>Career Goals</b>: What are your long-term career goals? Are there specific industries or roles you aspire to be a part of?</div>
+        <textarea type="text" name="career_goals" id="career_goals"></textarea>
+        <button class="btn" id="continueBtn"
+            onclick="navigateToNextBranch('./geographical_preferences.html')">Continue</button>
+    </div>
+
+    <script src="test.js"></script>
+
+    <script>
+        function navigateToNextBranch(nextPage) {
+            professionAspects.goals = document.getElementById('career_goals').value;
+            // console.log(professionAspects);
+            window.location.href = nextPage;
+        }
+    </script>
+</body>
+
+</html>

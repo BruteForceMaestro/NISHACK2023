@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Career Guidance Test</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="branch-name"><b>Work Experience:</b> What is your work experience? Have you worked in a specific industry or field? What were your responsibilities and achievements?</div>
+        <textarea type="text" name="work_exp" id="work_exp"></textarea>
+        <button class="btn" id="continueBtn"
+            onclick="navigateToNextBranch('./values_and_motivations.html')">Continue</button>
+    </div>
+
+    <script src="test.js"></script>
+
+    <script>
+        function navigateToNextBranch(nextPage) {
+            professionAspects.workExperience = document.getElementById('work_exp').value;
+            // console.log(professionAspects);
+            window.location.href = nextPage;
+        }
+    </script>
+</body>
+
+</html>
