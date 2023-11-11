@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Career Guidance Test</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
+
 <body>
-            <div class="container">
-        <h1 class="branch-name">Skills and Experience</h1>
-        <div class="questions">
-            <label>What are your key skills? These could include technical skills, soft skills, and any specific talents you possess.</label>
-            <textarea type="text" id="personalSkills">
-        </div>
-        <button id="continueBtn" onclick="navigateToNextBranch('interests_and_passions.html')">Continue</button>
+
+    <div class="container">
+        <div class="branch-name"><b>Skills and Strengths</b>: What are your key skills? These could include technical
+            skills, soft skills, and any specific talents you possess.</div>
+        <textarea type="text" name="personalSkills" id="personalSkills"></textarea>
+        <button class="btn" id="continueBtn"
+            onclick="navigateToNextBranch('./interests_and_passions.html')">Continue</button>
     </div>
 
     <script>
@@ -37,4 +39,5 @@
         }
     </script>
 </body>
+
 </html>

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Career Guidance Test</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
+
 <body>
-            <div class="container"> 
-        <h1 class="branch-name">Geographical Preferences</h1>
-        <div class="questions">
-            <p>Do you have any preferences regarding the location of their work? For example, civil engineering projects may require fieldwork in specific regions</p>
-            <input type="text" id="geographicalPreferences">
-        </div>
-        <button id="continueBtn" onclick="navigateToNextBranch('personal_traits.html')">Continue</button>
+    <div class="container">
+        <div class="branch-name"><b>Values and Motivations</b>: What is important to you in a job? Are you motivated by helping others, financial success, creative expression, problem-solving, or something else?</div>
+        <textarea type="text" name="values" id="values"></textarea>
+        <button class="btn" id="continueBtn"
+            onclick="navigateToNextBranch('./working_environment_preferences.html')">Continue</button>
     </div>
 
     <script>
@@ -19,11 +19,11 @@
             window.location.href = nextPage;
         }
         function sendData() {
-            const geographicalPreferences = document.getElementById('geographicalPreferences').value;
+            const professionAspects = document.getElementById('values').value;
 
             fetch('backend.js', {
                 method: 'POST',
-                body: JSON.stringify({ geographicalPreferences }),
+                body: JSON.stringify({ professionAspects }),
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -36,4 +36,5 @@
         }
     </script>
 </body>
+
 </html>

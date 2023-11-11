@@ -8,10 +8,10 @@
 
 <body>
     <div class="container">
-        <div class="branch-name"><b>Preferred Work Environment</b>: Do you prefer working independently or in a team? Do you enjoy a fast-paced environment or a more relaxed one?</div>
-        <textarea type="text" name="work_setting" id="work_setting"></textarea>
+        <div class="branch-name"><b>Geographic Preferences</b>: Are you open to working in specific locations, or do you have preferences regarding the geographical area of your workplace?</div>
+        <textarea type="text" name="geoPrefs" id="geoPrefs"></textarea>
         <button class="btn" id="continueBtn"
-            onclick="navigateToNextBranch('./career_goals.html')">Continue</button>
+            onclick="navigateToNextBranch('./lifestyle.html')">Continue</button>
     </div>
 
     <script>
@@ -19,7 +19,7 @@
             window.location.href = nextPage;
         }
         function sendData() {
-            const professionAspects = document.getElementById('work_setting').value;
+            const professionAspects = document.getElementById('geoPrefs').value;
 
             fetch('backend.js', {
                 method: 'POST',

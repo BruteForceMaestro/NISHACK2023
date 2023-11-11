@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Career Guidance Test</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
+
 <body>
-            <div class="container">
-        <h1 class="branch-name">Educational Background</h1>
-        <div class="questions">
-            <p>What level of education do you have or are willing to pursue?</p>
-            <input type="text" id="educationLevel">
-            <p>Have you studied any subjects related to any fields?</p>
-            <input type="text" id="studiedSubjects">
-        </div>
-        <button id="continueBtn" onclick="navigateToNextBranch('skills_and_experience.html')">Continue</button>
+    <div class="container">
+        <div class="branch-name"><b>Education and Qualifications</b>: What is your educational background? What degrees
+            or certifications do you hold?</div>
+        <textarea type="text" name="education" id="educationLevel"></textarea>
+        <button class="btn" id="continueBtn"
+            onclick="navigateToNextBranch('skills_and_experience.html')">Continue</button>
     </div>
 
     <script>
@@ -22,7 +21,6 @@
         }
         function sendData() {
             const educationLevel = document.getElementById('educationLevel').value;
-            const studiedSubjects = document.getElementById('studiedSubjects').value;
 
             fetch('backend.js', {
                 method: 'POST',
@@ -39,4 +37,5 @@
         }
     </script>
 </body>
+
 </html>

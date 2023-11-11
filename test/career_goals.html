@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Career Guidance Test</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
+
 <body>
-            <div class="container">
-        <h1 class="branch-name">Career Goals</h1>
-        <div class="questions">
-            <p>What are your long-term career goals?</p>
-            <input type="text" id="longtermGoals">
-            <p>Are you looking for stability, innovation, or a combination of both in your career?</p>
-            <input type="text" id="combinationofGoals">
-        </div>
-        <button id="continueBtn" onclick="navigateToNextBranch('personal_values.html')">Continue</button>
+    <div class="container">
+        <div class="branch-name"><b>Career Goals</b>: What are your long-term career goals? Are there specific industries or roles you aspire to be a part of?</div>
+        <textarea type="text" name="career_goals" id="career_goals"></textarea>
+        <button class="btn" id="continueBtn"
+            onclick="navigateToNextBranch('./geographical_preferences.html')">Continue</button>
     </div>
 
     <script>
@@ -21,12 +19,11 @@
             window.location.href = nextPage;
         }
         function sendData() {
-            const longtermGoals = document.getElementById('longtermGoals').value;
-            const combinationofGoals = document.getElementById('combinationofGoals').value;
+            const professionAspects = document.getElementById('career_goals').value;
 
             fetch('backend.js', {
                 method: 'POST',
-                body: JSON.stringify({ longtermGoals, combinationofGoals }),
+                body: JSON.stringify({ professionAspects }),
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -39,4 +36,5 @@
         }
     </script>
 </body>
+
 </html>

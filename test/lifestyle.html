@@ -8,10 +8,10 @@
 
 <body>
     <div class="container">
-        <div class="branch-name"><b>Preferred Work Environment</b>: Do you prefer working independently or in a team? Do you enjoy a fast-paced environment or a more relaxed one?</div>
-        <textarea type="text" name="work_setting" id="work_setting"></textarea>
+        <div class="branch-name"><b>Lifestyle Considerations</b>: Are there specific lifestyle factors that are important to you, such as work-life balance, travel opportunities, or flexibility in working hours?</div>
+        <textarea type="text" name="lifestyle" id="lifestyle"></textarea>
         <button class="btn" id="continueBtn"
-            onclick="navigateToNextBranch('./career_goals.html')">Continue</button>
+            onclick="navigateToNextBranch('./challenges.html')">Continue</button>
     </div>
 
     <script>
@@ -19,7 +19,7 @@
             window.location.href = nextPage;
         }
         function sendData() {
-            const professionAspects = document.getElementById('work_setting').value;
+            const professionAspects = document.getElementById('lifestyle').value;
 
             fetch('backend.js', {
                 method: 'POST',
