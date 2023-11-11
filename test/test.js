@@ -13,15 +13,22 @@ const default_aspects = {
     challenges: "None",
 }
 
+
 const dev = true; // true if in development environment. disables test for lazy
 
 function loadIntoResults(){
     let prof = document.querySelector('#results_profession')
-    const regExp = new RegExp(String.raw`Profession: (\w+(\s*\w*)+)`)
-    const regExpResult = regExp.exec(sessionStorage.gptResponse)
-    console.log(sessionStorage.gptResponse)
-    console.log(regExpResult)
-    prof.innerHTML = regExpResult[1];
+    let roadmap = document.querySelector('#results_roadmap')
+
+    const regExpProf = new RegExp(String.raw`Profession: (\w+(\s*\w*)+)`);
+    const regExpRoadmap = new RegExp(String.raw`(Roadmap:)([\S\s]*)`);
+
+    const regExProfResult = regExpProf.exec(sessionStorage.gptResponse)
+    const regExpRoadmapResult = regExpRoadmap.exec(sessionStorage.gptResponse)
+    
+    console.log(regExpRoadmapResult)
+    prof.innerHTML = regExProfResult[1];
+    roadmap.innerHTML = regExpRoadmapResult[2];
 }
 
 function navigateToNextBranch(nextPage, key) {
