@@ -11,18 +11,11 @@
         <div class="branch-name"><b>Geographic Preferences</b>: Are you open to working in specific locations, or do you have preferences regarding the geographical area of your workplace?</div>
         <textarea type="text" name="geoPrefs" id="geoPrefs"></textarea>
         <button class="btn" id="continueBtn"
-            onclick="navigateToNextBranch('./lifestyle.html')">Continue</button>
+            onclick="navigateToNextBranch('./lifestyle.html', 'geoPrefs')">Continue</button>
     </div>
 
     <script src="test.js"></script>
 
-    <script>
-        function navigateToNextBranch(nextPage) {
-            professionAspects.geo = document.getElementById('geoPrefs').value;
-            // console.log(professionAspects);
-            window.location.href = nextPage;
-        }
-    </script>
 </body>
 
 </html>

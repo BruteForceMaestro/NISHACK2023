@@ -11,18 +11,11 @@
         <div class="branch-name"><b>Values and Motivations</b>: What is important to you in a job? Are you motivated by helping others, financial success, creative expression, problem-solving, or something else?</div>
         <textarea type="text" name="values" id="values"></textarea>
         <button class="btn" id="continueBtn"
-            onclick="navigateToNextBranch('./working_environment_preferences.html')">Continue</button>
+            onclick="navigateToNextBranch('./working_environment_preferences.html', 'values')">Continue</button>
     </div>
 
     <script src="test.js"></script>
 
-    <script>
-        function navigateToNextBranch(nextPage) {
-            professionAspects.values = document.getElementById('values').value;
-            // console.log(professionAspects);
-            window.location.href = nextPage;
-        }
-    </script>
 </body>
 
 </html>
