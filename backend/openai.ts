@@ -75,6 +75,7 @@ export async function generateResponse(profession_aspects: ProfessionAspects) {
     ];
     You should follow this format: 
     Profession: [your chosen profession];
+    Roadmap: [your roadmap]
     `
 
     const user_msg = `

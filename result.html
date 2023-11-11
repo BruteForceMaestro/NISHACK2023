@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <script src="js/index.js" type="text/javascript"></script>
+    <script src="test/test.js" type="text/javascript"></script>
     <title>CareerCanvasAI</title>
 </head>
-<body>
+<body onload="loadIntoResults()">
     <header class="header">
         <nav class="nav">
             <a href="index.html"> Home </a>
@@ -28,11 +28,11 @@
             <div class="results">
                 <div class="results__text">Results:</div>
                 <div class="results__profession">
-                    <span class="results__subtitle">Profession: </span> <span class="results__name">example profession</span>
+                    <span class="results__subtitle">Profession: </span> <span class="results__name" id="results_profession">example profession</span>
                 </div>
                 <div class="results__profession">
                     <div class="results__subtitle">Roadmap: </div> 
-                    <ol class="results__name">
+                    <ol class="results__name" id="results_roadmap">
                         <li>1</li>
                         <li>2</li>
                         <li>3</li>

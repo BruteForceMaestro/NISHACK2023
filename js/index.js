@@ -1,8 +1,10 @@
 let auth_token = "";
 const backend_url = "http://localhost:3000" 
+const username = ""
 
 function saveAuthToken(authToken){
-    auth_token = authToken
+
+    sessionStorage.authToken = authToken
 }
 
 /**
@@ -22,9 +24,10 @@ function tryLogIn(){
     }
 
     httpRequest.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200){
-            saveAuthToken(httpRequest) 
-            window.location.href = "test/greeting.html"
+        if (httpRequest.readyState === XMLHttpRequest.DONE && this.status == 200){
+            sessionStorage.username = username;
+            saveAuthToken(httpRequest.body.accessToken) 
+            // window.location.href = "test/greeting.html"
         } 
     };
     httpRequest.open('POST', backend_url + route, true);
@@ -35,7 +38,9 @@ function tryLogIn(){
 
 }
 
-
+function tryGetUserInfo() {
+    const route = "/api/users/"
+}
 
 function tryRegister(){
     const route = "/api/users/"
