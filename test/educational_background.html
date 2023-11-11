@@ -15,25 +15,13 @@
             onclick="navigateToNextBranch('skills_and_experience.html')">Continue</button>
     </div>
 
+    <script src="test.js"></script>
+
     <script>
         function navigateToNextBranch(nextPage) {
+            professionAspects.education = document.getElementById('educationLevel').value;
+            // console.log(professionAspects);
             window.location.href = nextPage;
-        }
-        function sendData() {
-            const educationLevel = document.getElementById('educationLevel').value;
-
-            fetch('backend.js', {
-                method: 'POST',
-                body: JSON.stringify({ educationLevel, studiedSubjects }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                }
-            }).catch(error => {
-                console.error('Error:', error);
-            });
         }
     </script>
 </body>

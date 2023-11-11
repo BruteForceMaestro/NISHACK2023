@@ -14,25 +14,16 @@
             onclick="navigateToNextBranch('../result.html')">Finish</button>
     </div>
 
+    <script src="test.js"></script>
+
     <script>
         function navigateToNextBranch(nextPage) {
-            window.location.href = nextPage;
-        }
-        function sendData() {
-            const professionAspects = document.getElementById('challenges').value;
+            professionAspects.challenges = document.getElementById('challenges').value;
+            // console.log(professionAspects);
 
-            fetch('backend.js', {
-                method: 'POST',
-                body: JSON.stringify({ professionAspects }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                }
-            }).catch(error => {
-                console.error('Error:', error);
-            });
+            postData()
+
+            // window.location.href = nextPage;
         }
     </script>
 </body>

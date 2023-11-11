@@ -9,30 +9,18 @@
 <body>
     <div class="container">
         <div class="branch-name"><b>Interests and Passions</b>: What are you passionate about? What activities or subjects do you enjoy working on in your free time?</div>
-        <textarea type="text" name="professionAspects" id="professionAspects"></textarea>
+        <textarea type="text" name="interests" id="interests"></textarea>
         <button class="btn" id="continueBtn"
             onclick="navigateToNextBranch('./work_exp.html')">Continue</button>
     </div>
 
+    <script src="test.js"></script>
+
     <script>
         function navigateToNextBranch(nextPage) {
+            professionAspects.interests = document.getElementById('interests').value;
+            // console.log(professionAspects);
             window.location.href = nextPage;
-        }
-        function sendData() {
-            const professionAspects = document.getElementById('professionAspects').value;
-
-            fetch('backend.js', {
-                method: 'POST',
-                body: JSON.stringify({ professionAspects }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                }
-            }).catch(error => {
-                console.error('Error:', error);
-            });
         }
     </script>
 </body>
