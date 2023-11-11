@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Career Guidance Test</title>
+    <link rel="stylesheet" type="text/css" href="career_guidance_test.css">
+</head>
+<body>
+            <div class="container">
+        <h1 class="branch-name">Interests and Passions</h1>
+        <div class="questions">
+            <p>Besides the stated interest in building bridges, are there other specific aspects of each profession that you find appealing or unappealing?</p>
+            <input type="text" id="professionAspects">
+        </div>
+        <button id="continueBtn" onclick="navigateToNextBranch('working_environment_preferences.html')">Continue</button>
+    </div>
+
+    <script>
+        function navigateToNextBranch(nextPage) {
+            window.location.href = nextPage;
+        }
+        function sendData() {
+            const professionAspects = document.getElementById('professionAspects').value;
+
+            fetch('backend.js', {
+                method: 'POST',
+                body: JSON.stringify({ professionAspects }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>

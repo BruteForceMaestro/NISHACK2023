@@ -104,7 +104,6 @@ describe('Get Endpoints', () => {
     expect(user.age).toEqual(payload.age) // checks private
     
   })
-
   it('returns only public data about user when without proper authorization', async () => {
     const res = await request(app)
       .get('/api/users/dimash') 

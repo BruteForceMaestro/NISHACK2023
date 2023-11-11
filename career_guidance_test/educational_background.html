@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Career Guidance Test</title>
+    <link rel="stylesheet" type="text/css" href="career_guidance_test.css">
+</head>
+<body>
+            <div class="container">
+        <h1 class="branch-name">Educational Background</h1>
+        <div class="questions">
+            <p>What level of education do you have or are willing to pursue?</p>
+            <input type="text" id="educationLevel">
+            <p>Have you studied any subjects related to software engineering, civil engineering, or other relevant fields?</p>
+            <input type="text" id="studiedSubjects">
+        </div>
+        <button id="continueBtn" onclick="navigateToNextBranch('skills_and_experience.html')">Continue</button>
+    </div>
+
+    <script>
+        function navigateToNextBranch(nextPage) {
+            window.location.href = nextPage;
+        }
+        function sendData() {
+            const educationLevel = document.getElementById('educationLevel').value;
+            const studiedSubjects = document.getElementById('studiedSubjects').value;
+
+            fetch('backend.js', {
+                method: 'POST',
+                body: JSON.stringify({ educationLevel, studiedSubjects }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
