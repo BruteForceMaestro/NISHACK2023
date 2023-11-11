@@ -4,13 +4,13 @@ import express from 'express'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 import dotenv from 'dotenv'
-import e from "express"
+import cors from 'cors'
 
 dotenv.config()
 const app = express()
 
 app.use(express.json())
-
+app.use(cors({credentials: true, origin: true}))
 // checks body of request for type
 function typeCheck<T>(body: Object){
     let instanceOfT : T | undefined = undefined;
@@ -82,9 +82,11 @@ app.post('/api/users/login', async (request, response) => {
     
     response.set('Content-Type', 'application/json')
 
+    console.log(request.body)
+
     const loginDetails = typeCheck<UserLoginDetails>(request.body)
 
-    if (loginDetails == undefined){
+    if (loginDetails?.username == undefined){
         sendShortMessage(response, "Improper request")
         return
     }
