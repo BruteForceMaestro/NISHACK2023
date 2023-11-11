@@ -1,4 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+.greeting {
+  padding: 200px 0px 0px 0px;
+  margin: 0 auto;
+  max-width: 1000px;
+  text-align: center;
+  /* .greeting_text */
+}
+.greeting_text {
+  font-size: 50px;
+  margin-bottom: 100px;
+}
+
+.btn {
+  display: inline-block;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 20px;
+  padding: 10px 30px;
+  text-decoration: none;
+  transition: 0.4s;
+}
+.btn:hover {
+  background-color: #d1d1d1;
+}
+
 * {
   margin: 0;
   padding: 0;
