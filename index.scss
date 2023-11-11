@@ -17,14 +17,34 @@
     padding: 20px 100px;
     z-index: 99;
     background: transparent;
+
+    a {
+        color: #000;
+        text-decoration: none;
+        display: inline-block;
+        margin-right: 30px;
+    }
 }
 
-.header .nav a {
-    text-decoration: none;
-    color: black;
-    font-size: 17px;
-    margin-left: 20px;
-    font-weight: 600;
+html {
+    background-image: linear-gradient(to bottom right, rgb(162, 236, 255), rgb(68, 0, 255));
+    width: 100%;
+    height: 100%;
+}
+
+.logo {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+
+    /* .logo__img */
+    &__img {
+        width: 300px;
+
+        img {
+            width: 100%;
+        }
+    }
 }
 
 .header .search input {
@@ -38,20 +58,6 @@
     color: black;
 }
 
-.header .search i {
-    position: absolute;
-    right: 110px;
-    top: 22px;
-    color: black;
-}
-
-.background {
-    width: 100%;
-    height: 100vh;
-    background-image: url('lone-tree-landscape-6016x3385-11471.png');
-    background-position: center;
-    background-size: cover;
-}
 
 .home {
     position: absolute;
@@ -59,7 +65,7 @@
     left: 50%;
     width: 75%;
     height: 75%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     background-image: url('lone-tree-landscape-6016x3385-11471.png');
     background-position: center;
     background-size: cover;
@@ -176,7 +182,7 @@
 .login .input i {
     position: relative;
     right: -370px;
-    bottom:27px;
+    bottom: 27px;
     color: black;
 }
 
@@ -221,7 +227,7 @@ button {
 
 .button a:hover {
     box-shadow: none;
-  }
+}
 
 .login .sign-up {
     display: flex;

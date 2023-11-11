@@ -17,13 +17,30 @@
   z-index: 99;
   background: transparent;
 }
-
-.header .nav a {
+.header a {
+  color: #000;
   text-decoration: none;
-  color: black;
-  font-size: 17px;
-  margin-left: 20px;
-  font-weight: 600;
+  display: inline-block;
+  margin-right: 30px;
+}
+
+html {
+  background-image: linear-gradient(to bottom right, rgb(162, 236, 255), rgb(68, 0, 255));
+  width: 100%;
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  /* .logo__img */
+}
+.logo__img {
+  width: 300px;
+}
+.logo__img img {
+  width: 100%;
 }
 
 .header .search input {
@@ -35,21 +52,6 @@
   right: 100px;
   outline: none;
   color: black;
-}
-
-.header .search i {
-  position: absolute;
-  right: 110px;
-  top: 22px;
-  color: black;
-}
-
-.background {
-  width: 100%;
-  height: 100vh;
-  background-image: url("lone-tree-landscape-6016x3385-11471.png");
-  background-position: center;
-  background-size: cover;
 }
 
 .home {
