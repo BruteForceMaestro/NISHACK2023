@@ -1,9 +1,8 @@
 
 function navigateToNextBranch(nextPage, key) {
-
     sessionStorage[key] = document.getElementById(key).value;
-
     console.log(sessionStorage[key])
+    window.location.href = nextPage;
 }
 
 function postData() {

@@ -13,18 +13,10 @@
             skills, soft skills, and any specific talents you possess.</div>
         <textarea type="text" name="personalSkills" id="personalSkills"></textarea>
         <button class="btn" id="continueBtn"
-            onclick="navigateToNextBranch('./interests_and_passions.html')">Continue</button>
+            onclick="navigateToNextBranch('./interests_and_passions.html', 'personalSkills')">Continue</button>
     </div>
 
     <script src="test.js"></script>
-
-    <script>
-        function navigateToNextBranch(nextPage) {
-            professionAspects.skills = document.getElementById('personalSkills').value;
-            // console.log(professionAspects);
-            window.location.href = nextPage;
-        }
-    </script>
 </body>
 
 </html>

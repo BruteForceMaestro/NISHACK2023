@@ -11,18 +11,10 @@
         <div class="branch-name"><b>Preferred Work Environment</b>: Do you prefer working independently or in a team? Do you enjoy a fast-paced environment or a more relaxed one?</div>
         <textarea type="text" name="work_setting" id="work_setting"></textarea>
         <button class="btn" id="continueBtn"
-            onclick="navigateToNextBranch('./career_goals.html')">Continue</button>
+            onclick="navigateToNextBranch('./career_goals.html', 'work_setting')">Continue</button>
     </div>
 
     <script src="test.js"></script>
-
-    <script>
-        function navigateToNextBranch(nextPage) {
-            professionAspects.env = document.getElementById('work_setting').value;
-            // console.log(professionAspects);
-            window.location.href = nextPage;
-        }
-    </script>
 </body>
 
 </html>

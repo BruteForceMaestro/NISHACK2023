@@ -11,18 +11,11 @@
         <div class="branch-name"><b>Lifestyle Considerations</b>: Are there specific lifestyle factors that are important to you, such as work-life balance, travel opportunities, or flexibility in working hours?</div>
         <textarea type="text" name="lifestyle" id="lifestyle"></textarea>
         <button class="btn" id="continueBtn"
-            onclick="navigateToNextBranch('./challenges.html')">Continue</button>
+            onclick="navigateToNextBranch('./challenges.html', 'lifestyle')">Continue</button>
     </div>
 
     <script src="test.js"></script>
 
-    <script>
-        function navigateToNextBranch(nextPage) {
-            professionAspects.lifestyle = document.getElementById('lifestyle').value;
-            // console.log(professionAspects);
-            window.location.href = nextPage;
-        }
-    </script>
 </body>
 
 </html>
