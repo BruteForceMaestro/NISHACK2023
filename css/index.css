@@ -37,6 +37,11 @@
   font-weight: 700;
 }
 
+.error {
+  color: red;
+  font-size: 15px;
+}
+
 .reg-form {
   padding-top: 60px;
   /* .reg-form__elem */
@@ -317,6 +322,8 @@ button {
 .login .sign-up p {
   color: black;
 }
+
+
 
 .sign-up a:hover {
   text-decoration: underline;

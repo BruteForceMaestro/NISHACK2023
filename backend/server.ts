@@ -11,19 +11,14 @@ const app = express()
 
 app.use(express.json())
 app.use(cors({credentials: true, origin: true}))
-// checks body of request for type
-function typeCheck<T>(body: Object){
-    let instanceOfT : T | undefined = undefined;
-    try {
-        instanceOfT = body as T
-    }
-    catch {
-        console.log("Malformed request recieved.")
-        return undefined
-    }
 
-    return instanceOfT;
-}
+
+type Constructible<
+  Params extends readonly any[] = any[],
+  T = any,
+> = new (...params: Params) => T;
+
+
 
 // sends in json so tests don't fail and shit
 function sendShortMessage(response, msg: string, statusCode: number = 400){
@@ -51,30 +46,33 @@ app.post('/api/users', async (request, response) => {
     
     response.set('Content-Type', 'application/json')
 
-    const newUser = typeCheck<User>(request.body)
+    const newUser = new User(request.body)
 
-    if (newUser == undefined){
+    if (newUser.username == undefined){
         sendShortMessage(response, "Improper request")
         return
     }
 
     let hashedPassword;
     try {
+        console.log(newUser)
         hashedPassword = await bcrypt.hash(newUser.password, 10)
         newUser.password = hashedPassword
 
     } catch (err) {
         console.error("Failed to hash password!")
         console.error(err)
-        response.status(501).send()
+        response.status(501).send(err)
+        return
     }
     
     insertUser(newUser).then( us =>{
         response.status(200).send(us[0])
+        return
     }  
     ).catch(err => {
         console.log(err)
-        response.sendStatus(501)
+        response.status(400).send(err)
     })
 })
 
@@ -84,7 +82,7 @@ app.post('/api/users/login', async (request, response) => {
 
     console.log(request.body)
 
-    const loginDetails = typeCheck<UserLoginDetails>(request.body)
+    const loginDetails = new UserLoginDetails(request.body.username, request.body.password)
 
     if (loginDetails?.username == undefined){
         sendShortMessage(response, "Improper request")
