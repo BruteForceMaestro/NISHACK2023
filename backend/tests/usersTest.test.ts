@@ -42,7 +42,14 @@ describe ('Post Endpoints', () => {
     
     expect(payload.username).toEqual(res.body.username)
 
+  })
 
+  it('posts educational background', async () => {
+    const example_edu = "no education"
+
+    const res = await request(app).post('/api/gpt')
+
+    expect(example_edu).toBe(res.body)
   })
 })
 
