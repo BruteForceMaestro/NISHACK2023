@@ -30,6 +30,16 @@ function sendShortMessage(response, msg: string, statusCode: number = 400){
     response.status(statusCode).send({message: msg})
 }
 
+// post test info from frontend to here
+app.post('/api/test', (req, res) => {
+    // Assuming req.body.professionAspects contains the data sent in the POST request
+    const professionAspects = req.body.professionAspects;
+    console.log(professionAspects);
+    // Do something with the data (e.g., process it, query a database, etc.)
+    // For demonstration purposes, let's just send the same data back as a response
+    res.json({ receivedData: professionAspects });
+});
+
 // returns public knowledge about users
 app.get('/api/users', async (request, response) => {
     getUsers(1).then(rowlist => {
