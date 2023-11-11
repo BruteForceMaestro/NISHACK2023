@@ -36,6 +36,7 @@ function tryLogIn(){
 }
 
 
+
 function tryRegister(){
     const route = "/api/users/"
     let httpRequest = false;
