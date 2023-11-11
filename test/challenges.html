@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Career Guidance Test</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
+
 <body>
-            <div class="container">
-        <h1 class="branch-name">Personal Values</h1>
-        <div class="questions">
-            <p>Are there specific values or principles that are important to you, and do these align with the nature of each profession?</p>
-            <input type="text" id="importantPrinciples">
-        </div>
-        <button id="continueBtn" onclick="navigateToNextBranch('geographical_prefernces.html')">Continue</button>
+    <div class="container">
+        <div class="branch-name"><b>Challenges or Constraints</b>: Are there any limitations or constraints that might affect your career choices? For example, health considerations, family commitments, or other personal factors.</div>
+        <textarea type="text" name="challenges" id="challenges"></textarea>
+        <button class="btn btn-end" id="continueBtn"
+            onclick="navigateToNextBranch('../result.html')">Finish</button>
     </div>
 
     <script>
@@ -19,11 +19,11 @@
             window.location.href = nextPage;
         }
         function sendData() {
-            const importantPrinciples = document.getElementById('importantPrinciples').value;
+            const professionAspects = document.getElementById('challenges').value;
 
             fetch('backend.js', {
                 method: 'POST',
-                body: JSON.stringify({ importantPrinciples }),
+                body: JSON.stringify({ professionAspects }),
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -36,4 +36,5 @@
         }
     </script>
 </body>
+
 </html>

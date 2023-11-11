@@ -12,16 +12,59 @@
 }
 
 .btn {
-    display: inline-block;
-    color: #000;
-    background-color: #fff;
-    border: 1px solid #000;
-    border-radius: 20px;
-    padding: 10px 30px;
+    cursor: pointer;
+    background-color: rgb(99, 247, 69);
+    max-width: 130px;
     text-decoration: none;
+    color: #000;
     transition: 0.4s;
+    display: block;
+    margin-top: 50px;
+    margin: 0 auto;
 
     &:hover {
-        background-color: #d1d1d1;
+        background-color: rgb(131, 255, 148);
+    }
+}
+
+.btn1 {
+    cursor: pointer;
+    font-size: 20px;
+    padding: 5px 20px;
+    background-color: rgb(99, 247, 69);
+    max-width: 130px;
+    text-decoration: none;
+    color: #000;
+    transition: 0.4s;
+    display: block;
+    margin-top: 50px;
+    border-radius: 20px;
+    border: 1px solid #000;
+    margin: 0 auto;
+
+    &:hover {
+        background-color: rgb(131, 255, 148);
+    }
+}
+
+.branch-name {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+textarea {
+    font-size: 16px;
+    padding: 5px;
+    margin-bottom: 30px;
+    width: 100%;
+    resize: none;
+}
+
+.btn-end {
+    background-color: #ff1c1c;
+    color: #fff;
+
+    &:hover {
+        background-color: #ff4c4c;
     }
 }
