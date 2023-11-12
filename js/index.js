@@ -27,7 +27,7 @@ function tryLogIn(){
         if (httpRequest.readyState === XMLHttpRequest.DONE && this.status == 200){
             sessionStorage.username = username;
             saveAuthToken(httpRequest.body.accessToken) 
-            // window.location.href = "test/greeting.html"
+            window.location.href = "test/greeting.html"
         } 
     };
     httpRequest.open('POST', backend_url + route, true);

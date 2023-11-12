@@ -70,6 +70,10 @@ textarea {
   padding-top: 200px;
   max-width: 1000px;
   margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  margin-bottom: 100px;
 }
 
 .signup-text {
@@ -102,7 +106,7 @@ textarea {
 }
 .reg-form .btn-sumbit {
   cursor: pointer;
-  background-color: #f74545;
+  background-color: #86f745;
   max-width: 130px;
   text-decoration: none;
   color: #fff;
@@ -444,8 +448,9 @@ html {
 }
 
 button {
-  width: 100%;
+  width: 130px;
   height: 40px;
+  margin: 0 auto;
   background-color: crimson;
   border: none;
   text-decoration: underline;
