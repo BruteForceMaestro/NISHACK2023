@@ -7,6 +7,47 @@ function saveAuthToken(authToken){
     sessionStorage.authToken = authToken
 }
 
+function onAccountLoad(){
+    console.log("does this even run")
+    let route = "/api/users/" + sessionStorage.username
+
+    if (sessionStorage.authToken == undefined){
+        console.log("unloaded authtoken??")
+        return;
+    }
+
+    httpRequest = new XMLHttpRequest();
+    if (httpRequest.overrideMimeType) {
+        httpRequest.overrideMimeType('text/xml');
+    }
+
+    httpRequest.onreadystatechange = function() {
+        if (httpRequest.readyState === XMLHttpRequest.DONE && this.status == 200){
+            let username = document.getElementById("acc_username")
+            console.log(username)
+            let first_name = document.getElementById("acc_fullname")
+            let age = document.getElementById("acc_age")
+            let email = document.getElementById("acc_email")
+            let profession = document.getElementById("acc_profession")
+            let roadmap = document.getElementById("acc_roadmap")
+            // window.location.href = "test/greeting.html"
+            username.innerHTML = httpRequest.response.username;
+            first_name.innerHTML = httpRequest.response.first_name;
+            age.innerHTML = httpRequest.response.age;
+            email.innerHTML = httpRequest.response.email;
+            profession.innerHTML = "not implemented.";
+            roadmap.innerHTML = httpRequest.response.roadmap;
+
+
+        } 
+    };
+    httpRequest.open('GET', backend_url + route, true);
+    httpRequest.setRequestHeader("Content-type", "application/json");
+    
+    httpRequest.setRequestHeader("authorization", "Bearer " + sessionStorage.accessToken);
+    httpRequest.send()
+}
+
 /**
  * Tries contacting backend to log in to an existing account.
  * Sends a POST request to /api/users/login
@@ -26,12 +67,13 @@ function tryLogIn(){
     httpRequest.onreadystatechange = function() {
         if (httpRequest.readyState === XMLHttpRequest.DONE && this.status == 200){
             sessionStorage.username = username;
-            saveAuthToken(httpRequest.body.accessToken) 
+            saveAuthToken(httpRequest.response.accessToken) 
             // window.location.href = "test/greeting.html"
         } 
     };
     httpRequest.open('POST', backend_url + route, true);
     httpRequest.setRequestHeader("Content-type", "application/json");
+    
     httpRequest.send( JSON.stringify({ username: username, password: password }) );
 
     
