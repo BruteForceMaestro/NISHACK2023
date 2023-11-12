@@ -37,6 +37,68 @@ export async function insertUser(user: User) {
     return users
 }
 
+export async function addRoadmapToUser(user: User, roadmap: string){
+    user.roadmap = roadmap
+    
+    const users = await sql<User[]>`
+        UPDATE users
+        SET roadmap = ${roadmap}
+        WHERE username
+        IN (${user.username})
+    `
+
+    return users
+}
+
+export async function getProfessionNameById(id: number){
+    const users = await sql`
+        SELECT
+        (name) 
+        FROM 
+        professions
+        WHERE id
+        IN (${id})
+    `
+
+    return users
+}
+
+export async function updateProfForUser(user: User, prof_id: number){
+    const users = await sql<User[]>`
+        UPDATE users
+        SET profession_id = ${prof_id}
+        WHERE username
+        IN (${user.username})
+    `
+
+    return users
+}
+
+
+export async function getProfessionIdByName(profName: string){
+    const users = await sql`
+        SELECT
+        (id) 
+        FROM 
+        professions
+        WHERE name
+        IN (${profName})
+    `
+
+    return users
+}
+
+export async function addProfessionByName(profName: string){
+    const users = await sql<User[]>`
+        INSERT INTO professions
+        (name) 
+        VALUES (${profName})
+        RETURNING *
+    `
+
+    return users
+}
+
 export async function deleteUser(user: User){
     const users = await sql<User[]>`
         DELETE FROM users

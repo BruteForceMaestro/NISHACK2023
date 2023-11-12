@@ -93,6 +93,7 @@ export async function generateResponse(profession_aspects: ProfessionAspects) {
     const completion = await openai.chat.completions.create({
       messages: [
         { role: "system", content: system_msg },
+        //{role: "system", content: "hello world"}
         { role: "user", content: user_msg }
       ],
       model: "gpt-3.5-turbo"
