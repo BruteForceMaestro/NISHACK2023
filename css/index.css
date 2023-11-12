@@ -72,8 +72,6 @@ textarea {
   margin: 0 auto;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-between;
-  margin-bottom: 100px;
 }
 
 .signup-text {
@@ -448,9 +446,9 @@ html {
 }
 
 button {
-  width: 130px;
-  height: 40px;
-  margin: 0 auto;
+  width: 200px;
+  margin: 40px auto 0;
+  padding: 10px 0px;
   background-color: crimson;
   border: none;
   text-decoration: underline;
@@ -459,6 +457,7 @@ button {
   font-weight: 700;
   border-radius: 7px;
   color: black;
+  cursor: pointer;
 }
 
 .button:active {
