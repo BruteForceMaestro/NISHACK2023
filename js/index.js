@@ -1,4 +1,4 @@
-let auth_token = "";
+
 const backend_url = "http://localhost:3000" 
 const username = ""
 
@@ -11,6 +11,8 @@ function onAccountLoad(){
     console.log("does this even run")
     let route = "/api/users/" + sessionStorage.username
 
+    console.log(route)
+
     if (sessionStorage.authToken == undefined){
         console.log("unloaded authtoken??")
         return;
@@ -21,31 +23,33 @@ function onAccountLoad(){
         httpRequest.overrideMimeType('text/xml');
     }
 
+    
+    httpRequest.open('GET', backend_url + route, true);
+    httpRequest.setRequestHeader("Content-type", "application/json");
+    httpRequest.setRequestHeader("authorization", "Bearer " + sessionStorage.authToken);
+    httpRequest.send();
+
     httpRequest.onreadystatechange = function() {
-        if (httpRequest.readyState === XMLHttpRequest.DONE && this.status == 200){
+        if (this.readyState == 4 && this.status == 200){
             let username = document.getElementById("acc_username")
-            console.log(username)
             let first_name = document.getElementById("acc_fullname")
             let age = document.getElementById("acc_age")
             let email = document.getElementById("acc_email")
             let profession = document.getElementById("acc_profession")
             let roadmap = document.getElementById("acc_roadmap")
+            console.log(httpRequest.response)
             // window.location.href = "test/greeting.html"
-            username.innerHTML = httpRequest.response.username;
-            first_name.innerHTML = httpRequest.response.first_name;
-            age.innerHTML = httpRequest.response.age;
-            email.innerHTML = httpRequest.response.email;
+            let userObject = JSON.parse(httpRequest.response)
+            username.innerHTML = userObject.username;
+            first_name.innerHTML = userObject.first_name;
+            age.innerHTML = userObject.age;
+            email.innerHTML = userObject.email;
             profession.innerHTML = "not implemented.";
-            roadmap.innerHTML = httpRequest.response.roadmap;
+            roadmap.innerHTML = userObject.roadmap;
 
 
         } 
     };
-    httpRequest.open('GET', backend_url + route, true);
-    httpRequest.setRequestHeader("Content-type", "application/json");
-    
-    httpRequest.setRequestHeader("authorization", "Bearer " + sessionStorage.accessToken);
-    httpRequest.send()
 }
 
 /**
@@ -64,18 +68,21 @@ function tryLogIn(){
         httpRequest.overrideMimeType('text/xml');
     }
 
-    httpRequest.onreadystatechange = function() {
-        if (httpRequest.readyState === XMLHttpRequest.DONE && this.status == 200){
-            sessionStorage.username = username;
-            saveAuthToken(httpRequest.body.accessToken) 
-            window.location.href = "test/greeting.html"
-        } 
-    };
     httpRequest.open('POST', backend_url + route, true);
     httpRequest.setRequestHeader("Content-type", "application/json");
     
     httpRequest.send( JSON.stringify({ username: username, password: password }) );
 
+    
+    httpRequest.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200){
+            let resp = JSON.parse(httpRequest.response);
+            console.log(resp.accessToken)
+            sessionStorage.username = username;
+            saveAuthToken(resp.accessToken) 
+            // window.location.href = "test/greeting.html"
+        } 
+    };
     
 
 }

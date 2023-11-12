@@ -208,7 +208,6 @@ app.get('/api/users/:username/delete', authenticateToken, async (request, respon
 function authenticateToken(req, res, next) {
     const bearer = req.headers['authorization']
     const token = bearer && bearer.split(' ')[1]
-
     if (token == undefined){
         return res.sendStatus(401) // no access
     }
