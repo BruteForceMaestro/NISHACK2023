@@ -74,7 +74,7 @@ export async function generateResponse(profession_aspects: ProfessionAspects) {
       'Biomedical Researcher'
     ];
     You should follow this format: 
-    Profession: [your chosen profession];
+    Profession: [your chosen profession];[new line here]
     Roadmap: [your roadmap in one paragraph, no newlines]
     `
 
