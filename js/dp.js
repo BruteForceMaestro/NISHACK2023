@@ -1,42 +1,42 @@
 const jobs = {
     'Software Developer':
         [
-            'Computer Science HL',
+            'Computer Science SL',
             'Mathematics AA HL',
             'Physics HL',
-            'Digital Societies SL',
-            'Design Technology SL',
-            'Business and Management SL'
+            'Digital Societies HL',
+            'English A SL',
+            'Russian A SL'
         ],
 
     'Medical Doctor':
         [
             'Biology HL',
             'Chemistry HL',
-            'Physics SL',
+            'Russian A SL',
             'Mathematics AA SL',
-            'Psychology SL',
-            'English Language and Literature SL'
+            'Antropology HL',
+            'English A SL'
         ],
 
     'Data Scientist':
         [
-            'Mathematics HL',
-            'Computer Science HL',
+            'English B HL',
+            'Computer Science SL',
             'Physics SL',
-            'Mathematical AA HL',
-            'Digital Societies SL',
-            'Business and Management SL'
+            'Mathematics AI HL',
+            'Digital Societies HL',
+            'Russian A SL'
         ],
 
     'Financial Analyst':
         [
-            'Mathematics AI HL',
+            'Mathematics AI SL',
             'Business and Management HL',
             'Economics HL',
             'English B HL',
-            'Computer Science SL',
-            ' Digital Societiy SL'
+            'Russian A SL',
+            'Digital Societiy SL'
         ],
 
     'Marketing Manager':
@@ -45,28 +45,28 @@ const jobs = {
             'Economics SL',
             'Mathematics AA SL',
             'English B HL',
-            'Visual Arts SL',
-            'Visual Arts'
+            'Russian A SL',
+            'Digital Society HL'
         ],
 
     'Civil Engineer':
         [
-            'Physics',
-            'Computer science',
-            'Mathematics AA',
-            'English B',
-            'Digital societies',
-            'Design Technology'
+            'Physics HL',
+            'Computer science SL',
+            'Mathematics AA HL',
+            'English B HL',
+            'Digital societies SL',
+            'Russian A SL'
         ],
 
     'Cybersecurity Specialist':
         [
-            'Computer Science HL',
-            'Mathematics SL',
-            'Physics SL',
+            'Computer Science SL',
+            'Mathematics AA HL',
+            'Russian A SL',
             'Digital Societies HL',
-            'Business and Management SL',
-            'English B HL'
+            'Business and Management HL',
+            'English A SL'
         ],
 
     'Pharmacist':
@@ -74,29 +74,29 @@ const jobs = {
             'Biology HL',
             'Chemistry HL',
             'Mathematics AA SL',
-            'English B HL',
-            'Business and Management SL',
-            'Visual Arts SL'
+            'English A SL',
+            'Business and Management HL',
+            'Russian A SL'
         ],
 
     'Attorney':
         [
-            'English Language and Literature HL',
+            'English A SL',
             'History HL',
-            'Business and Management SL',
+            'Business and Management HL',
             'Economics SL',
-            'Psychology SL',
-            'English B HL'
+            'Geography HL',
+            'Russian A SL'
         ],
 
     'Environmental Scientist':
         [
             'Biology HL',
-            'Chemistry SL',
-            'Environmental Systems and Societies HL',
+            'Chemistry HL',
+            'Antropology HL',
             'Geography SL',
-            'Mathematics SL',
-            'Visual Arts SL'
+            'Mathematics AI SL',
+            'Russian A SL'
         ],
 
     'Surgeon':
@@ -106,17 +106,17 @@ const jobs = {
             'Physics SL',
             'Mathematics AA SL',
             'English B HL',
-            'Visual Arts SL'
+            'Russian A SL'
         ],
 
     'Human Resources Manager':
         [
             'Business and Management HL',
-            'Psychology SL',
-            'Economics SL',
+            'Antropology HL',
+            'Russian A SL',
             'English B HL',
             'Mathematics AA SL',
-            'Global Politics SL'
+            'Geography SL'
         ],
 
     'Mechanical Engineer':
@@ -124,69 +124,69 @@ const jobs = {
             'Physics HL',
             'Mathematics AA HL',
             'Chemistry SL',
-            'Design Technology SL',
-            'Business and Management SL',
-            'English B SL'
+            'Computer Science SL',
+            'Russian A SL',
+            'English B HL'
         ],
 
     'Registered Nurse':
         [
             'Biology HL',
-            'Chemistry SL',
-            'Psychology SL',
+            'Chemistry HL',
+            'Russian A SL',
             'Mathematical AA SL',
             'English B HL',
-            'Sports exercise and health Science HL'
+            'Antropology SL'
         ],
 
     'Psychiatrist':
         [
             'Biology HL',
-            'Psychology HL',
-            'Chemistry SL',
+            'Antropology HL',
+            'Chemistry HL',
             'Mathematics AA SL',
-            'English B HL',
-            'Global Politics SL'
+            'English A SL',
+            'Russian A SL'
         ],
 
     'Teacher':
         [
-            'English Language and Literature HL',
-            'Psychology SL',
-            'Business and Management SL',
             'English B HL',
-            'Mathematics AA HL',
-            'Visual Arts SL'
+            'Antropology HL',
+            'Geography HL',
+            'Russian A SL',
+            'Mathematics AA SL',
+            'Economics SL'
         ],
 
     'Graphic Designer':
         [
             'Visual Arts HL',
-            'Design Technology HL',
-            'Computer Science HL',
-            'English B SL',
+            'Russian A SL',
+            'Computer Science SL',
+            'English B HL',
             'Mathematical AA SL',
-            'Media SL'
+            'Antropology HL'
         ],
 
     'Director':
         [
-            'Film HL',
-            'Theatre HL',
-            'Business and Management SL',
-            'English Language and Literature HL',
-            'Global Politics SL',
-            'Visual Arts SL'
+            'Digital Society SL',
+            'Geography SL',
+            'Business and Management HL',
+            'English B HL',
+            'Antropology HL',
+            'Russian A SL'
         ],
 
     'Actor':
         [
-            'Theatre HL',
-            'English Language and Literature HL',
+            'Antropology HL',
+            'English A SL',
             'Visual Arts SL',
-            'Psychology SL',
-            'Global Politics SL',
-            'Film HL'
+            'Geography HL',
+            'Digital Society HL',
+            'Russian A SL'
         ]
     ,
     'Biomedical Researcher':
@@ -194,8 +194,8 @@ const jobs = {
             'Biology HL',
             'Chemistry HL',
             'Physics SL',
-            'Mathematics AA SL',
-            'Psychology SL',
-            'Environmental Systems and Societies SL'
+            'Mathematics AA HL',
+            'Russian A SL',
+            'Antropology SL'
         ]
 };
