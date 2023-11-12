@@ -67,8 +67,8 @@ function tryLogIn(){
     httpRequest.onreadystatechange = function() {
         if (httpRequest.readyState === XMLHttpRequest.DONE && this.status == 200){
             sessionStorage.username = username;
-            saveAuthToken(httpRequest.response.accessToken) 
-            // window.location.href = "test/greeting.html"
+            saveAuthToken(httpRequest.body.accessToken) 
+            window.location.href = "test/greeting.html"
         } 
     };
     httpRequest.open('POST', backend_url + route, true);

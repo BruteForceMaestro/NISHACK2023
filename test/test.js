@@ -216,7 +216,7 @@ const default_aspects = {
 }
 
 
-const dev = true; // true if in development environment. disables test for lazy
+const dev = false; // true if in development environment. disables test for lazy
 
 function loadIntoResults(){
     const prof = document.querySelector('#results_profession')

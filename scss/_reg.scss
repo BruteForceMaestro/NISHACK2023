@@ -2,6 +2,8 @@
     padding-top: 200px;
     max-width: 1000px;
     margin: 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
 }
 .signup-text {
     font-size: 40px;
@@ -33,7 +35,7 @@
 
     .btn-sumbit {
         cursor: pointer;
-        background-color: #f74545;
+        background-color: #86f745;
         max-width: 130px;
         text-decoration: none;
         color: #fff;
