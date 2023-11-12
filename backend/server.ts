@@ -1,12 +1,13 @@
-import { deleteUser, getUserByUsername, getUsers, insertUser } from "./users"
+import { addProfessionByName, addRoadmapToUser, deleteUser, getProfessionIdByName, getProfessionNameById, getUserByUsername, getUsers, insertUser, updateProfForUser } from "./users"
 import { User, PublicUser, UserLoginDetails } from "./models/user"
 import express, { response } from 'express'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 import dotenv from 'dotenv'
-import { generateResponse }from "./openai"
+import { generateResponse } from "./openai"
 import { ProfessionAspects } from "./models/professionAspects"
 import cors from 'cors'
+import { request } from "http"
 
 dotenv.config()
 const app = express()
@@ -20,16 +21,59 @@ function sendShortMessage(response, msg: string, statusCode: number = 400){
     response.status(statusCode).send({message: msg})
 }
 
+// only called the first time when doing the gpt
+app.post('/api/users/:username/roadmap', authenticateToken, async(req, res) => {
+    try {
+        let user = (await getUserByUsername(req.params.username))[0];
+        const s = await addRoadmapToUser(user, req.body.roadmap)
+        sendShortMessage(res, "Succesfully updated.", 200)
+    } catch (err) {
+        console.log(err)
+        sendShortMessage(res, "Invalid request.")
+    }
+})
+
+app.post('/api/users/:username/prof', authenticateToken, async (req, res) => {
+    try {
+        let user = (await getUserByUsername(req.params.username))[0];
+        let profId = (await getProfessionIdByName(req.body.profName))[0]
+        const s = await updateProfForUser(user, profId.id)
+        
+        sendShortMessage(res, "Succesfully updated.", 200)
+    } catch (err) {
+        console.error(err)
+        sendShortMessage(res, "Invalid request.")
+    }
+})
+
+app.get('/api/professions/id/:id', async (req, res) => {
+    let rowlist = await getProfessionNameById(parseInt(req.params.id))
+    let prof_name = rowlist[0]
+    if (prof_name == undefined){
+        sendShortMessage(res, "Invalid profession ID.")
+        return;
+    }
+    res.status(200).send({prof_name: prof_name})
+})
+
+app.get('/api/professions/:name', async (req, res) => {
+    let rowlist = await getProfessionIdByName(req.params.name)
+    let prof_id = rowlist[0]
+    if (prof_id == undefined){
+        prof_id = (await addProfessionByName(req.params.name))[0]
+    }
+
+    res.status(200).send({prof_id: prof_id})
+})
+
 // post test info from frontend to here
 app.post('/api/test', async (req, res) => {
     // Assuming req.body.professionAspects contains the data sent in the POST request
     const professionAspects = new ProfessionAspects(req.body);
     if (professionAspects?.challenges == undefined){
         sendShortMessage(res, "Invalid profession aspects object")
-        console.log(professionAspects)
         return
     }
-    console.log(professionAspects);
     // Do something with the data (e.g., process it, query a database, etc.)
     let gpt_ans = await generateResponse(professionAspects);
     // For demonstration purposes, let's just send the same data back as a response
@@ -48,7 +92,6 @@ app.get('/api/users', async (request, response) => {
         response.status(200).send(publicInfo)
 
     }).catch(err => {
-        console.log(err)
         response.sendStatus(501)
     })
 })
@@ -66,7 +109,6 @@ app.post('/api/users', async (request, response) => {
 
     let hashedPassword;
     try {
-        console.log(newUser)
         hashedPassword = await bcrypt.hash(newUser.password, 10)
         newUser.password = hashedPassword
 
@@ -82,7 +124,6 @@ app.post('/api/users', async (request, response) => {
         return
     }  
     ).catch(err => {
-        console.log(err)
         response.status(400).send(err)
     })
 })
@@ -91,7 +132,6 @@ app.post('/api/users/login', async (request, response) => {
     
     response.set('Content-Type', 'application/json')
 
-    console.log(request.body)
 
     const loginDetails = new UserLoginDetails(request.body?.username, request.body?.password)
 
@@ -109,8 +149,6 @@ app.post('/api/users/login', async (request, response) => {
     }
 
     try {
-        console.log(loginDetails.password)
-        console.log(user.password)
         if (await bcrypt.compare(loginDetails.password, user.password)){
             console.log("Login success.")
 

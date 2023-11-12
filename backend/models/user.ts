@@ -8,6 +8,7 @@ export class User {
     email: string
     password: string
     profession_id: number
+    roadmap: string
     
     constructor(userObject){
         this.username = userObject.username
@@ -16,6 +17,7 @@ export class User {
         this.age = userObject.age
         this.email = userObject.email
         this.password = userObject.password
+        this.roadmap = userObject.roadmap
         if (userObject.profession_id == null){
             this.profession_id = NO_PROFESSION_CODE; // default code for no profession
         } else {

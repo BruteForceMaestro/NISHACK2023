@@ -99,6 +99,30 @@ describe ('Post Endpoints And Authentication', () => {
     )
   })
 
+  it('changes roadmap when provided with good input', async () => {
+    const res = await request(app).post(
+      '/api/users/ivan_123/roadmap'
+    ).send({roadmap: "come on"})
+    .set( 'Accept', 'application/json').set('authorization', 'Bearer ' + accessToken)
+    .expect( 'Content-Type', 'application/json; charset=utf-8')
+    .expect(200)
+    
+    console.log(res.body)
+    }
+  )
+  it('changes roadmap when provided with good input', async () => {
+    const res = await request(app).post(
+      '/api/users/ivan_123/prof'
+    ).send({ profName: "Software Engineer"})
+    .set( 'Accept', 'application/json').set('authorization', 'Bearer ' + accessToken)
+    .expect( 'Content-Type', 'application/json; charset=utf-8')
+    .expect(200)
+
+    console.log(res.body)
+    }
+  )
+
+
 })
 
 
